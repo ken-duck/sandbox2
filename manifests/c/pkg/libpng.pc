@@ -1,0 +1,12 @@
+prefix=/Users/twoducks/src/cheque-examples/osx/demo/cheque-demo/lib
+exec_prefix=
+libdir=/lib
+includedir=/include/libpng16
+
+Name: libpng
+Description: Loads and saves PNG files
+Version: 1.6.37
+Requires: zlib
+Libs: -L -lpng16
+Libs.private: -lz
+Cflags: -I

@@ -1,0 +1,72 @@
+{
+  "name": "@okta/okta-signin-widget",
+  "description": "The Okta Sign-In Widget",
+  "version": "2.16.0",
+  "homepage": "https://github.com/okta/okta-signin-widget",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okta/okta-signin-widget.git"
+  },
+  "bugs": {
+    "url": "https://github.com/okta/okta-signin-widget/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "browserslist": [
+    "> 0.1%",
+    "not ie <= 9"
+  ],
+  "main": "./dist/js/okta-sign-in.entry.js",
+  "scripts": {
+    "clean": "rimraf target && rimraf dist && rimraf build2",
+    "generate-phone-codes": "node buildtools generate-phone-codes",
+    "generate-config": "node buildtools generate-language-config",
+    "generate-jsonp": "node buildtools generate-language-jsonp",
+    "retirejs": "retire --jspath src --package",
+    "lint:eslint": "eslint .",
+    "lint:eslint:report": "eslint -f checkstyle -o build2/OSW-eslint-checkstyle-result.xml .",
+    "lint:stylelint": "stylelint assets/sass/",
+    "lint:stylelint:report": "stylelint --custom-formatter node_modules/stylelint-checkstyle-formatter assets/sass/ > build2/OSW-stylelint-checkstyle-result.xml",
+    "lint:grunt": "grunt lint",
+    "lint:grunt:report": "grunt lint --checkstyle",
+    "lint": "mkdir -p build2 && run-p -c lint:eslint lint:grunt lint:stylelint",
+    "lint:report": "mkdir -p build2 && run-p -c lint:eslint:report lint:grunt:report lint:stylelint:report",
+    "test:dev": "yarn generate-config && karma start",
+    "test:coverage": "yarn test --reporters=progress,coverage",
+    "test": "yarn test:dev --single-run",
+    "install:react": "yarn --cwd test/e2e/react-app install",
+    "prestart:react": "kill -9 $(lsof -t -i:3001 -sTCP:LISTEN) || true",
+    "start:react": "yarn --cwd test/e2e/react-app start & wait-on http-get://localhost:3001",
+    "install:angular": "yarn --cwd test/e2e/angular-app install",
+    "prestart:angular": "kill -9 $(lsof -t -i:4200 -sTCP:LISTEN) || true",
+    "start:angular": "yarn --cwd test/e2e/angular-app start & wait-on http-get://localhost:4200",
+    "pretest:e2e": "yarn install:react && yarn install:angular && node pretest.js",
+    "test:e2e": "yarn build:release && yarn start:react && yarn start:angular && grunt test-e2e",
+    "protractor": "webdriver-manager update && protractor target/e2e/conf.js",
+    "build:dev": "grunt build:dev",
+    "build:release": "grunt build:release",
+    "build:webpack-dev": "webpack --config webpack.dev.config.js",
+    "start": "webpack-dev-server --config webpack.playground.config.js",
+    "build:webpack-release": "webpack --config webpack.release.config.js",
+    "build:webpack-e2e-app": "webpack target/e2e/app/app-using-osw-entry.js target/js/app-bundle.js",
+    "prestart": "yarn build:dev",
+    "prepublish": "yarn build:release"
+  },
+  "devDependencies": {
+    "@sindresorhus/to-milliseconds": "^1.0.0",
+    "autoprefixer": "6.7.7",
+    "axe-core": "2.0.7",
+    "axe-webdriverjs": "0.4.0"
+  },
+  "dependencies": {
+    "jquery": "1.12.1",
+    "q": "1.4.1",
+    "u2f-api-polyfill": "0.4.1",
+    "underscore": "1.8.3"
+  },
+  "optionalDependencies": {
+    "fsevents": "*"
+  }
+}

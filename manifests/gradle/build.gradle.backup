@@ -1,0 +1,38 @@
+apply plugin: 'com.sonatype.lift.lift-gradle-plugin'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = 'hello.HelloWorld'
+
+// tag::repositories[]
+repositories { 
+    mavenCentral() 
+}
+// end::repositories[]
+
+// tag::jar[]
+jar {
+    archiveBaseName = 'gs-gradle'
+    archiveVersion =  '0.1.0'
+}
+// end::jar[]
+
+// tag::dependencies[]
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext.hadoopVersion = "2.0.0-mr1-cdh4.0.1"
+
+dependencies {
+    implementation "joda-time:joda-time:2.2"
+    testImplementation "junit:junit:4.12"
+    compile "com.google.guava:guava:11.0.2"
+    compile "com.fasterxml.jackson.core:jackson-databind:2.10.1"
+    provided "org.apache.hadoop:hadoop-client:${hadoopVersion}"
+}
+
+// end::dependencies[]
+
+// tag::wrapper[]
+// end::wrapper[]

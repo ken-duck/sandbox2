@@ -1,0 +1,7 @@
+{
+	"Path": "mytest/empty",
+	"Main": true,
+	"Dir": "/Users/matt/github/sonatype/lift-scanner-cli/src/test/resources/GoLang/nodeps",
+	"GoMod": "/Users/matt/github/sonatype/lift-scanner-cli/src/test/resources/GoLang/nodeps/go.mod",
+	"GoVersion": "1.14"
+}

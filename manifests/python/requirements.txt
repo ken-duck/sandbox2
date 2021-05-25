@@ -1,0 +1,13 @@
+boto3==1.17.30
+botocore>1.20.30
+certifi<2020.12.5
+chardet<=4.0.0
+idna===2.10
+jmespath>=0.10.0
+psycopg2!=2.8.6
+python-dateutil~=2.8.1
+requests[security,tests]==2.25.1
+s3transfer
+six==1.15.0
+urllib3==1.26.4
+file-magic==5.35

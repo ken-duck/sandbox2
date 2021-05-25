@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>my.id</id>
+    <version>1.0.18</version>
+    <title>Example dependencies</title>
+    <authors>Gern Blanston</authors>
+    <owners>Sonatype</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/sonatype/lift-scanner-cli-test-project</projectUrl>
+    <description>Example file for lift scanner testing</description>
+    <copyright>Copyright 2021</copyright>
+    <tags></tags>
+    <dependencies>
+      <group>
+        <dependency id="log4net" version="2.0.8.0" />
+        <dependency id="Newtonsoft.Json" version="6.0.0.0" />
+      </group>
+      <group targetFramework="net46">
+        <dependency id="jQuery" version="1.6.1" />
+        <dependency id="log4net" version="2.0.8.0" />
+        <dependency id="Newtonsoft.Json" version="6.0.0.0" />
+        <dependency id="FluentNHibernate" version="2.0.3.0" />
+        <dependency id="UserModel.SMDC" version="1.0.0.0" />
+        <dependency id="Microsoft.AspNet.Identity.Core" version="2.2.1" />
+        <dependency id="Microsoft.AspNet.WebPages.Core" version="5.2.3" />
+        <dependency id="Microsoft.AspNet.WebApi.WebHost" version="5.2.3" />
+        <dependency id="Microsoft.AspNet.WebApi.Data" version="3.2.5" />
+        <dependency id="Microsoft.AspNet.WebApi.WebData" version="3.2.5" />  
+        <dependency id="Npgsql" version="3.2.5" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Xamarin.Stripe.Terminal.Android.dll" target="lib\MonoAndroid90" />
+  </files>
+</package>
